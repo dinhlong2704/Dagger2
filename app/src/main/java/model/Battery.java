@@ -1,4 +1,4 @@
 package model;
 
-public class Mobile {
+public class Battery {
 }

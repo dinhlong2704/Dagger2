@@ -1,2 +1,4 @@
-package model;public class Proccessor {
+package model;
+
+public class Proccessor {
 }
