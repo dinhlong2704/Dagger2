@@ -14,7 +14,7 @@ public class Mobile {
         this.proccessor = proccessor;
         Log.i("MyMobile", "Mobile");
     }
-
+    //
     public void run() {
         Log.i("MyMobile", "run");
     }
