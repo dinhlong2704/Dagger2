@@ -1,4 +1,4 @@
-package com.example.dagger2.component;
+package component;
 
 import dagger.Component;
 import model.Mobile;
