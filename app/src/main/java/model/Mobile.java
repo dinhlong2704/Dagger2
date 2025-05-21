@@ -14,13 +14,13 @@ public class Mobile {
         this.proccessor = proccessor;
         Log.i("MyMobile", "Mobile");
     }
-    //
+
     public void run() {
         Log.i("MyMobile", "run");
     }
 
-    @Inject
-    public void connectCharger(Charger charger) {
-        charger.setCharger(this);
-    }
+//    @Inject
+//    public void connectCharger(Charger charger) {
+//        charger.setCharger(this);
+//    }
 }
