@@ -16,6 +16,7 @@ public class Mobile {
     }
 
     public void run() {
+        proccessor.start();
         Log.i("MyMobile", "run");
     }
 

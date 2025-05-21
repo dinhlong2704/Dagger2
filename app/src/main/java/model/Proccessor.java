@@ -4,9 +4,6 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
-public class Proccessor {
-    @Inject
-    public Proccessor() {
-        Log.i("MyMobile", "Proccessor started");
-    }
+public interface Proccessor {
+    void start();
 }
