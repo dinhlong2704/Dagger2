@@ -18,4 +18,9 @@ public class Mobile {
     public void run() {
         Log.i("MyMobile", "run");
     }
+
+    @Inject
+    public void connectCharger(Charger charger) {
+        charger.setCharger(this);
+    }
 }
