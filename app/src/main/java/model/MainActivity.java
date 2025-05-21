@@ -11,6 +11,7 @@ import javax.inject.Inject;
 
 import component.DaggerMobileComponent;
 import component.MobileComponent;
+import module.SnapdragonModule;
 
 public class MainActivity extends AppCompatActivity {
     private MainActivityBinding binding;
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        MobileComponent mobileComponent = DaggerMobileComponent.create();
+        MobileComponent mobileComponent = DaggerMobileComponent.builder()
+                .snapdragonModule(new SnapdragonModule(3))
+                .build();
         //mobileComponent.getMobile();
         mobileComponent.inject(this);
         //Mobile mobile = mobileComponent.getMobile();

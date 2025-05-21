@@ -7,8 +7,14 @@ import model.Snapdragon;
 
 @Module
 public class SnapdragonModule {
+    int clockSpeed;
+
+    public SnapdragonModule(int clockSpeed) {
+        this.clockSpeed = clockSpeed;
+    }
+
     @Provides
     Proccessor provideProccessor(){
-        return new Snapdragon();
+        return new Snapdragon(clockSpeed);
     }
 }
