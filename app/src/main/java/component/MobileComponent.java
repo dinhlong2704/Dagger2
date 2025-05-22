@@ -8,21 +8,18 @@ import model.MainActivity;
 import model.MediaTek;
 import model.Mobile;
 import module.BatteryModule;
+import module.CameraModule;
 import module.MediaTekModule;
 import module.SnapdragonModule;
 
-@Component(modules = {BatteryModule.class, MediaTekModule.class})
+@Component(modules = {BatteryModule.class, MediaTekModule.class, CameraModule.class})
 public interface MobileComponent {
     //Mobile getMobile();
     void inject(MainActivity mainActivity);
-
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        Builder  setClockSpeed(@Named("clockSpeed") int clockSpeed);
-        @BindsInstance
-        Builder  setCore(@Named("core") int core);
-
-        MobileComponent build();
+    @Component.Factory
+    interface Factory {
+        MobileComponent create(@BindsInstance @Named("clockSpeed") int clockSpeed ,
+                               @BindsInstance @Named("core") int core,
+                               @BindsInstance @Named("pixels") int pixels);
     }
 }

@@ -23,10 +23,7 @@ public class MainActivity extends AppCompatActivity {
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        MobileComponent mobileComponent = DaggerMobileComponent.builder()
-                .setClockSpeed(3)
-                .setCore(2)
-                .build();
+        MobileComponent mobileComponent = DaggerMobileComponent.factory().create(2,4,64);
         //mobileComponent.getMobile();
         mobileComponent.inject(this);
         //Mobile mobile = mobileComponent.getMobile();
