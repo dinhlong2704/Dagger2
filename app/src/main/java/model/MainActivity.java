@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         MobileComponent mobileComponent = DaggerMobileComponent.builder()
-                .snapdragonModule(new SnapdragonModule(3))
+                .setClockSpeed(3)
+                .setCore(2)
                 .build();
         //mobileComponent.getMobile();
         mobileComponent.inject(this);

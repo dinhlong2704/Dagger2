@@ -3,15 +3,20 @@ package model;
 import android.util.Log;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class MediaTek implements Proccessor{
+    int clockSpeed;
+    int cores;
     @Inject
-    public MediaTek() {
+    public MediaTek(@Named("clockSpeed") int clockSpeed,@Named("core") int cores) {
+        this.clockSpeed = clockSpeed;
+        this.cores = cores;
         Log.i("MyMobile", "MediaTek");
     }
 
     @Override
     public void start() {
-        Log.i("MyMobile", "MediaTek started");
+        Log.i("MyMobile", "MediaTek start with clock speed " + clockSpeed+" cores "+cores);
     }
 }

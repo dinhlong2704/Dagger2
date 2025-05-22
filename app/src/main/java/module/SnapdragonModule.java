@@ -14,7 +14,12 @@ public class SnapdragonModule {
     }
 
     @Provides
-    Proccessor provideProccessor(){
-        return new Snapdragon(clockSpeed);
+    public int getClockSpeed() {
+        return clockSpeed;
+    }
+
+    @Provides
+    Proccessor provideProccessor(Snapdragon snapdragon) {
+        return snapdragon;
     }
 }
