@@ -1,6 +1,7 @@
 package component;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -11,7 +12,7 @@ import module.BatteryModule;
 import module.CameraModule;
 import module.MediaTekModule;
 import module.SnapdragonModule;
-
+@Singleton
 @Component(modules = {BatteryModule.class, MediaTekModule.class, CameraModule.class})
 public interface MobileComponent {
     //Mobile getMobile();

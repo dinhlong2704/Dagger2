@@ -4,7 +4,9 @@ import android.nfc.Tag;
 import android.util.Log;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class Battery {
     private Lithium lithium;
     private Cobalt cobalt;

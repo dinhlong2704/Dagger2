@@ -15,7 +15,7 @@ public class Mobile {
         this.proccessor = proccessor;
         this.camera = camera;
 
-        Log.i("MyMobile", "Mobile");
+        Log.i("Singleton", "Mobile "+battery.toString()+ proccessor.toString()+ this.toString());
     }
 
     public void run() {

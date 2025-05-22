@@ -16,7 +16,7 @@ import module.SnapdragonModule;
 public class MainActivity extends AppCompatActivity {
     private MainActivityBinding binding;
     @Inject
-    Mobile mobile;
+    Mobile mobile1,mobile2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mobileComponent.inject(this);
         //Mobile mobile = mobileComponent.getMobile();
         //mobile.run();
-        mobile.run();
+        mobile1.run();
+        mobile2.run();
     }
 }
