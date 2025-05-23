@@ -18,6 +18,7 @@ import com.example.dagger2.ui.theme.component.DaggerFragmentComponent;
 import com.example.dagger2.ui.theme.component.FragmentComponent;
 import com.example.dagger2.ui.theme.model.Battery;
 import com.example.dagger2.ui.theme.model.Camera;
+import com.example.dagger2.ui.theme.model.Mobile;
 import com.example.dagger2.ui.theme.model.Proccessor;
 
 
@@ -25,14 +26,13 @@ public class MainFragment extends Fragment {
     private FragmentMainBinding binding;
     FragmentComponent component;
     Proccessor proccessor1, proccessor2;
+    Mobile mobile1,mobile2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMainBinding.inflate(inflater, container, false);
-        component = DaggerFragmentComponent.builder().setClockSpeed(100).setCore(4).build();
-        proccessor1 = component.getProcessor();
-        proccessor2 = component.getProcessor();
+
         ApplicationComponent component2 = ((MainApplication)getActivity().getApplicationContext()).getComponent();
         Camera camera1 = component2.getCamera();
         Camera camera2 = component2.getCamera();
@@ -40,6 +40,14 @@ public class MainFragment extends Fragment {
         Battery battery1 = component3.getBattery();
         Battery battery2 = component3.getBattery();
 
+        component = DaggerFragmentComponent.builder()
+                .setApplicationComponent(component2)
+                .setActivityComponent(component3)
+                .setClockSpeed(2).setCore(4).build();
+        proccessor1 = component.getProcessor();
+        proccessor2 = component.getProcessor();
+        mobile1 = component.getMobile();
+        mobile2 = component.getMobile();
         Log.i("dasdsfsdf", "=========MainFragment==========");
         Log.i("dasdsfsdf", " proccessor1 "+proccessor1);
         Log.i("dasdsfsdf", " proccessor2 "+proccessor2);
@@ -47,6 +55,11 @@ public class MainFragment extends Fragment {
         Log.i("dasdsfsdf", " battery2 "+battery2);
         Log.i("dasdsfsdf", " camera1 "+camera1);
         Log.i("dasdsfsdf", " camera2 "+camera2);
+        Log.i("dasdsfsdf", " mobile1 "+mobile1);
+        Log.i("dasdsfsdf", " mobile2 "+mobile2);
+        mobile1.run();
+        mobile2.run();
+
         return binding.getRoot();
 
     }

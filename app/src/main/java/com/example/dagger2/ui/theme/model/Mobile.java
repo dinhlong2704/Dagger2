@@ -14,8 +14,6 @@ public class Mobile {
         this.battery = battery;
         this.proccessor = proccessor;
         this.camera = camera;
-
-        Log.i("Singleton", "Mobile "+battery.toString()+ proccessor.toString()+ this.toString());
     }
 
     public void run() {
@@ -23,7 +21,16 @@ public class Mobile {
         Log.i("MyMobile", "run");
     }
 
-//    @Inject
+    @Override
+    public String toString() {
+        return "Mobile{" +
+                "battery=" + battery +
+                ", proccessor=" + proccessor +
+                ", camera=" + camera +
+                '}';
+    }
+
+    //    @Inject
 //    public void connectCharger(Charger charger) {
 //        charger.setCharger(this);
 //    }

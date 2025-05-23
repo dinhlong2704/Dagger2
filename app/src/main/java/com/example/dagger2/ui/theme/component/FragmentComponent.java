@@ -1,6 +1,7 @@
 package com.example.dagger2.ui.theme.component;
 
 import com.example.dagger2.ui.theme.model.MediaTek;
+import com.example.dagger2.ui.theme.model.Mobile;
 import com.example.dagger2.ui.theme.model.Proccessor;
 import com.example.dagger2.ui.theme.module.MediaTekModule;
 import com.example.dagger2.ui.theme.scops.FragmentScope;
@@ -13,10 +14,10 @@ import dagger.BindsInstance;
 import dagger.Component;
 
 @FragmentScope
-@Component(modules = {MediaTekModule.class})
+@Component(dependencies = {ActivityComponent.class, ApplicationComponent.class} ,modules = {MediaTekModule.class})
 public interface FragmentComponent {
     Proccessor getProcessor();
-
+    Mobile getMobile();
     @Component.Builder
     interface Builder {
         @BindsInstance
@@ -24,6 +25,10 @@ public interface FragmentComponent {
 
         @BindsInstance
         Builder setCore(@Named("core") int clockSpeed);
+
+        Builder setActivityComponent(ActivityComponent activityComponent);
+
+        Builder setApplicationComponent(ApplicationComponent applicationComponent);
 
         FragmentComponent build();
     }
