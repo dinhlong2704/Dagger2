@@ -12,14 +12,13 @@ import com.example.dagger2.databinding.FragmentMainBinding;
 import com.example.dagger2.ui.theme.MainApplication;
 import com.example.dagger2.ui.theme.component.ActivityComponent;
 import com.example.dagger2.ui.theme.component.ApplicationComponent;
-import com.example.dagger2.ui.theme.component.DaggerActivityComponent;
 import com.example.dagger2.ui.theme.component.DaggerApplicationComponent;
-import com.example.dagger2.ui.theme.component.DaggerFragmentComponent;
 import com.example.dagger2.ui.theme.component.FragmentComponent;
 import com.example.dagger2.ui.theme.model.Battery;
 import com.example.dagger2.ui.theme.model.Camera;
 import com.example.dagger2.ui.theme.model.Mobile;
 import com.example.dagger2.ui.theme.model.Proccessor;
+import com.example.dagger2.ui.theme.module.SnapdragonModule;
 
 
 public class MainFragment extends Fragment {
@@ -33,17 +32,16 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentMainBinding.inflate(inflater, container, false);
 
-        ApplicationComponent component2 = ((MainApplication)getActivity().getApplicationContext()).getComponent();
-        Camera camera1 = component2.getCamera();
-        Camera camera2 = component2.getCamera();
-        ActivityComponent component3 = ((MainActivity)getActivity()).getComponent();
-        Battery battery1 = component3.getBattery();
-        Battery battery2 = component3.getBattery();
+        ApplicationComponent componentApplication = ((MainApplication)getActivity().getApplicationContext()).getComponent();
+        Camera camera1 = componentApplication.getCamera();
+        Camera camera2 = componentApplication.getCamera();
+        ActivityComponent componentActivity = componentApplication.getActivityComponent();
+        Battery battery1 = componentActivity.getBattery();
+        Battery battery2 = componentActivity.getBattery();
 
-        component = DaggerFragmentComponent.builder()
-                .setApplicationComponent(component2)
-                .setActivityComponent(component3)
-                .setClockSpeed(2).setCore(4).build();
+        component = componentActivity.getFragmentComponent(new SnapdragonModule(3));
+
+
         proccessor1 = component.getProcessor();
         proccessor2 = component.getProcessor();
         mobile1 = component.getMobile();

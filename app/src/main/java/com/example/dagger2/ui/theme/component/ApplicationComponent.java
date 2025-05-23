@@ -15,7 +15,7 @@ import dagger.Component;
 @Component(modules = {CameraModule.class})
 public interface ApplicationComponent {
     Camera getCamera();
-
+    ActivityComponent getActivityComponent();
     @Component.Builder
     interface Builder {
 
