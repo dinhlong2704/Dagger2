@@ -1,12 +1,11 @@
-package model;
+package com.example.dagger2.ui.theme.model;
 
-import android.nfc.Tag;
 import android.util.Log;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-@Singleton
+
 public class Battery {
     private Lithium lithium;
     private Cobalt cobalt;

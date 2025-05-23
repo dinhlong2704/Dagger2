@@ -1,4 +1,4 @@
-package model;
+package com.example.dagger2.ui.theme.model;
 
 import android.util.Log;
 
@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-@Singleton
+
 public class MediaTek implements Proccessor{
     int clockSpeed;
     int cores;

@@ -1,9 +1,10 @@
-package module;
+package com.example.dagger2.ui.theme.module;
+
+import com.example.dagger2.ui.theme.model.Proccessor;
+import com.example.dagger2.ui.theme.model.Snapdragon;
 
 import dagger.Module;
 import dagger.Provides;
-import model.Proccessor;
-import model.Snapdragon;
 
 @Module
 public class SnapdragonModule {

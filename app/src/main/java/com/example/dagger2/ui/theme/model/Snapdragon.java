@@ -1,4 +1,4 @@
-package model;
+package com.example.dagger2.ui.theme.model;
 
 import android.util.Log;
 
