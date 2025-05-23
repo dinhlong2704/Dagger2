@@ -12,5 +12,5 @@ import dagger.Subcomponent;
 @Subcomponent(modules = BatteryModule.class)
 public interface ActivityComponent {
     Battery getBattery();
-    FragmentComponent getFragmentComponent(SnapdragonModule module);
+    FragmentComponent.Builder getFragmentComponentBuilder();
 }

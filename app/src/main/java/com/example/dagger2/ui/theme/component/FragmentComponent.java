@@ -16,27 +16,23 @@ import dagger.Component;
 import dagger.Subcomponent;
 
 @FragmentScope
-@Subcomponent(modules = {SnapdragonModule.class})
+@Subcomponent(modules = {MediaTekModule.class})
 public interface FragmentComponent {
     Proccessor getProcessor();
     Mobile getMobile();
 
 
 
-//    @Component.Builder
-//    interface Builder {
-//        @BindsInstance
-//        Builder setClockSpeed(@Named("clockSpeed") int clockSpeed);
-//
-//        @BindsInstance
-//        Builder setCore(@Named("core") int clockSpeed);
-//
-//        Builder setActivityComponent(ActivityComponent activityComponent);
-//
-//        Builder setApplicationComponent(ApplicationComponent applicationComponent);
-//
-//        FragmentComponent build();
-//    }
+    @Subcomponent.Builder
+    interface Builder {
+        @BindsInstance
+        Builder setClockSpeed(@Named("clockSpeed") int clockSpeed);
+
+        @BindsInstance
+        Builder setCore(@Named("core") int clockSpeed);
+
+        FragmentComponent build();
+    }
 
 
 }

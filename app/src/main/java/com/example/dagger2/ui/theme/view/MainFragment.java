@@ -39,7 +39,7 @@ public class MainFragment extends Fragment {
         Battery battery1 = componentActivity.getBattery();
         Battery battery2 = componentActivity.getBattery();
 
-        component = componentActivity.getFragmentComponent(new SnapdragonModule(3));
+        component = componentActivity.getFragmentComponentBuilder().setClockSpeed(4).setCore(8).build();
 
 
         proccessor1 = component.getProcessor();
